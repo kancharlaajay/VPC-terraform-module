@@ -1,7 +1,11 @@
-locals {
-  resource_name = "${var.project}-${var.environment}"
-  az_names = slice(data.aws_availability_zones.available.names, 0, 2)  #Slice is a function here we need only 0,1 index but in slice fuction need to take n+1 as exclusive 
+
+locals{
+    resource_name = "${var.project_name}-${var.environment}"
+    az_names = slice(data.aws_availability_zones.available.names, 0, 2)
+    default_vpc_id = data.aws_vpc.default.id
+    default_vpc_cidr = data.aws_vpc.default.cidr_block
 }
+
 
 
 
