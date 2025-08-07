@@ -13,6 +13,13 @@ resource "aws_vpc" "main" {
   )
 }
 
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "default"
+  }
+}
+
+
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
